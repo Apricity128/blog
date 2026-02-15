@@ -75,8 +75,15 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'blog',  # 你需要先在MySQL中创建这个数据库
+        'USER': 'apricity',
+        'PASSWORD': '123',
+        'HOST': 'localhost',   # 如果MySQL在本地，使用localhost或127.0.0.1
+        'PORT': '3306',        # MySQL默认端口是3306
+        'OPTIONS': {
+            'charset': 'utf8mb4',  # 使用utf8mb4字符集，支持更广泛的Unicode字符（如表情符号）
+        }
     }
 }
 
